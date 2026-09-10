@@ -1,0 +1,285 @@
+/* ============================================
+   OM TEXTILES — shared stylesheet
+   Bright, modern e-commerce theme.
+   Change the brand name anywhere by searching
+   this project for "OM Textiles" and replacing it.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---- Color tokens ---- */
+  --color-primary: #e6007e;      /* bold rani-pink — CTAs, links, accents */
+  --color-primary-dark: #b8005f;
+  --color-primary-soft: #ffe3f0; /* pale pink for tag/badge backgrounds */
+  --color-gold: #c9962e;         /* small premium accent, used sparingly */
+  --color-ink: #1a1a1a;          /* near-black body text */
+  --color-muted: #6b6b6b;
+  --color-bg: #ffffff;
+  --color-bg-soft: #faf8f9;      /* alternating section background */
+  --color-border: #ececec;
+  --color-card: #ffffff;
+
+  /* ---- Type tokens ---- */
+  --font-display: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-utility: 'Poppins', sans-serif;
+
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0 0 0.4em;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: 2.7rem; line-height: 1.15; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.15rem; }
+
+a { color: inherit; text-decoration: none; }
+
+.eyebrow {
+  font-family: var(--font-utility);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--color-primary);
+}
+
+/* ---- Announcement strip ---- */
+.announce-bar {
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  font-family: var(--font-utility);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  padding: 0.55rem 1rem;
+}
+
+/* ---- Header / nav ---- */
+header.site-header {
+  background: var(--color-bg);
+  padding: 1.3rem 6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+.brand span { color: var(--color-primary); }
+
+nav.main-nav { display: flex; gap: 2.2rem; }
+nav.main-nav a {
+  font-family: var(--font-utility);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--color-ink);
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+nav.main-nav a:hover,
+nav.main-nav a.active {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* ---- Hero ---- */
+.hero {
+  padding: 4.5rem 6vw 5rem;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  background: var(--color-bg-soft);
+}
+.hero h1 { max-width: 12ch; }
+.hero p.lede {
+  font-size: 1.08rem;
+  max-width: 46ch;
+  color: var(--color-muted);
+}
+.hero-actions { display: flex; gap: 1rem; margin-top: 1.7rem; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 0.9rem 1.8rem;
+  border-radius: 100px;
+  font-size: 0.98rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--color-primary); color: #fff; }
+.btn-primary:hover { background: var(--color-primary-dark); box-shadow: 0 8px 20px rgba(230,0,126,0.28); }
+.btn-outline { border: 2px solid var(--color-ink); color: var(--color-ink); }
+.btn-outline:hover { background: var(--color-ink); color: #fff; }
+
+/* Placeholder "lookbook" grid standing in for real banner photos —
+   4 bright color tiles echoing a fashion site's collage-style hero art.
+   Replace with real photos when ready. */
+.fabric-art {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  height: 340px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.10);
+}
+.fabric-art > div { border-radius: 6px; }
+
+/* ---- Category / product cards ---- */
+.section { padding: 3.8rem 6vw; }
+.section-head { max-width: 60ch; margin-bottom: 2.2rem; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.6rem;
+}
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 16px 30px rgba(0,0,0,0.08); }
+.card-swatch { height: 190px; }
+.card-body { padding: 1.15rem 1.25rem 1.5rem; }
+.price {
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-ink);
+}
+.tag {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border-radius: 100px;
+  padding: 3px 12px;
+  margin-bottom: 0.7rem;
+}
+
+/* placeholder swatch color variants standing in for photos —
+   bright, saturated palette matching the new theme */
+.sw-1 { background: linear-gradient(135deg, #e6007e, #ff8fc2); }
+.sw-2 { background: linear-gradient(135deg, #6a3de8, #e6007e); }
+.sw-3 { background: linear-gradient(135deg, #ffb200, #ff6b6b); }
+.sw-4 { background: linear-gradient(135deg, #00b2a9, #6a3de8); }
+.sw-5 { background: linear-gradient(135deg, #ff6b6b, #ffb200); }
+.sw-6 { background: linear-gradient(135deg, #6a3de8, #00b2a9); }
+
+/* ---- Slideshow: multiple images per product card. ---- */
+.slideshow {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+}
+.slideshow .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.slideshow .slide.active { opacity: 1; }
+.slideshow .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slideshow .dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+.slideshow .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.6);
+  cursor: pointer;
+  padding: 0;
+}
+.slideshow .dot.active { background: #ffffff; }
+
+/* ---- Strip banner (visit-the-shop nudge) ---- */
+.visit-strip {
+  background: var(--color-ink);
+  color: #fff;
+  padding: 2.6rem 6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.visit-strip h3 { color: #fff; margin: 0; }
+.visit-strip .btn-primary { background: var(--color-primary); }
+
+/* ---- Footer ---- */
+footer.site-footer {
+  padding: 2.5rem 6vw 3rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.92rem;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border);
+}
+footer.site-footer .brand { font-size: 1.2rem; }
+
+/* ---- Simple page header (Sarees/Lehengas/About) ---- */
+.page-hero {
+  padding: 3rem 6vw 2rem;
+  background: var(--color-bg-soft);
+}
+.page-hero .eyebrow { display: block; margin-bottom: 0.5rem; }
+
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; }
+  nav.main-nav { width: 100%; justify-content: space-between; gap: 1rem; }
+}
